@@ -4,7 +4,7 @@
 To determine the position and size of a tumour, it can be segmented from the surrounding image. By using the [U-Net architecture](https://arxiv.org/abs/1505.04597), a convolutional nueral network can be trained using fewer images through data augmentation.
 
 ## Objective:
-The goal of this project is to apply transfer learning to a brain tumour dataset for image segmentation.
+The goal of this project is to apply transfer learning to a brain tumour dataset for image segmentation. The U-Net model was adapted from [Subhajit Das](https://github.com/sdsubhajitdas)
 
 Dataset:
 
