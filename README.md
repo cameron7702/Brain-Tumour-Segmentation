@@ -11,9 +11,9 @@ Dataset:
 The dataset for this project was taken from [Jun Cheng](https://figshare.com/articles/dataset/brain_tumor_dataset/1512427). It contains 3064 T1-weighted contrast-inhanced images with three kinds of brain tumor.
 
 ## Relevant Packages:
-Pytorch: Used to create and train the U-Net (CNN)
-Pillow: Used for image processing
-Matplotlib: Used for image visualization
+* Pytorch: Used to create and train the U-Net (CNN)
+* Pillow: Used for image processing
+* Matplotlib: Used for image visualization
 
 ## Results:
 
