@@ -6,7 +6,7 @@ To determine the position and size of a tumour, it can be segmented from the sur
 ## Objective:
 The goal of this project is to apply transfer learning to a brain tumour dataset for image segmentation. The U-Net model was adapted from [Subhajit Das](https://github.com/sdsubhajitdas)
 
-Dataset:
+## Dataset:
 
 The dataset for this project was taken from [Jun Cheng](https://figshare.com/articles/dataset/brain_tumor_dataset/1512427). It contains 3064 T1-weighted contrast-inhanced images with three kinds of brain tumor.
 
