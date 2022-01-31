@@ -8,7 +8,7 @@ The goal of this project is to apply transfer learning to a brain tumour dataset
 
 ## Dataset:
 
-The dataset for this project was taken from [Jun Cheng](https://figshare.com/articles/dataset/brain_tumor_dataset/1512427). It contains 3064 T1-weighted contrast-inhanced images with three kinds of brain tumor.
+The dataset for this project was taken from [Jun Cheng](https://figshare.com/articles/dataset/brain_tumor_dataset/1512427). It contains 766 T1-weighted contrast-inhanced images with three kinds of brain tumor.
 
 ## Relevant Packages:
 * Pytorch: Used to create and train the U-Net (CNN)
@@ -20,7 +20,7 @@ The dataset for this project was taken from [Jun Cheng](https://figshare.com/art
 
 The model had a mean Dice score of 80% on the testing images. A sample comparison of the ground truth, input and output can be seen below.
 
-![alt text](https://github.com/cameron7702/Brain-Tumour-Segmentation/blob/master/Results.png)
+![alt text](https://github.com/cameron7702/Brain-Tumour-Segmentation/blob/master/tumour_tests.png)
 
 ## Next Steps:
 - Exploring different loss functions to improve segmentation
