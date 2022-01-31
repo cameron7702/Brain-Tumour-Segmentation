@@ -55,8 +55,9 @@ class BigBrain(Dataset):
                 mask = self.transform[elem](mask)
         return image, mask
 
-batch_size = 2
-
+batch_size_train = 2
+batch_size_valid = 2
+batch_size_test = 1
 # Data Path
 data_path = "Brain Tumour Segmentation\\Extracted Data"
 
@@ -77,25 +78,25 @@ for root, dirs, files in os.walk(mask_data):
 
 data_link = pd.DataFrame({"scan": scan_files, "mask": mask_files})
 
-# Dataset Splitting - 70% Train, 15% Valid, 15% Test
-np.random.seed(70)
-train, validate, test = np.split(data_link.sample(frac=1, random_state=42), [int(.75*len(data_link)), int(.95*len(data_link))])
+# Dataset Splitting - 70% Train, 20% Valid, 10% Test
+np.random.seed(66)
+train, validate, test = np.split(data_link.sample(frac=1, random_state=42), [int(.70*len(data_link)), int(.902*len(data_link))])
 
 # Training Dataset and Loader
 train_scans = train['scan'].tolist()
 train_masks = train['mask'].tolist()
 train_set = BigBrain(data=train_scans, targets=train_masks)
-train_loader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True)
+train_loader = DataLoader(dataset=train_set, batch_size=batch_size_train, shuffle=True)
 image, label = train_set.__getitem__(27)
 
 # Validation Dataset and Loader
 valid_scans = validate['scan'].tolist()
 valid_masks = validate['mask'].tolist()
 valid_set = BigBrain(data=valid_scans, targets=valid_masks)
-valid_loader = DataLoader(dataset=valid_set, batch_size=batch_size)
+valid_loader = DataLoader(dataset=valid_set, batch_size=batch_size_valid)
 
 # Testing Dataset and Loader
 test_scans = test['scan'].tolist()
 test_masks = test['mask'].tolist()
 test_set = BigBrain(data=test_scans, targets=test_masks)
-test_loader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=True)  
+test_loader = DataLoader(dataset=test_set, batch_size=batch_size_test, shuffle=True)  

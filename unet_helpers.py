@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from data_load import *
 
 # Adapted from: https://github.com/milesial/Pytorch-UNet/blob/master/unet/unet_parts.py
 
@@ -36,11 +37,9 @@ class Down(nn.Module):
         return self.maxpool_conv(x)
 
 class Up(nn.Module):
-
     def __init__(self, in_channels, out_channels, bilinear=True):
         super().__init__()
 
-        # if bilinear, use the normal convolutions to reduce the number of channels
         if bilinear:
             self.up = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
             self.conv = DoubleConv(in_channels, out_channels, in_channels // 2)
@@ -66,19 +65,5 @@ class OutConv(nn.Module):
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size=1)
 
     def forward(self, x):
-        return self.conv(x)
-
-class DiceLoss(nn.Module):
-    def __init__(self):
-        super(DiceLoss, self).__init__()
-
-    def forward(self, input, target, smooth=1):
-        input = torch.sigmoid(input)       
-        
-        input = input.view(-1)
-        target = target.view(-1)
-        
-        intersection = (input * target).sum()                            
-        dice = (2.*intersection + smooth)/(input.sum() + target.sum() + smooth)  
-        
-        return 1 - dice
+        x = torch.sigmoid(self.conv(x))
+        return x
