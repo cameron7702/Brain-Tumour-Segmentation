@@ -12,7 +12,7 @@ The dataset for this project was taken from [Jun Cheng](https://figshare.com/art
 
 ## Relevant Packages:
 * Pytorch: Used to create and train the U-Net (CNN)
-* Pandas: Used to split up data into training, validation and testing datasets.
+* Pandas: Used to split up data into training, validation and testing datasets
 * Pillow: Used for image processing
 * Matplotlib: Used for image visualization
 
