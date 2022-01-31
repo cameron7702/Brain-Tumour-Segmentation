@@ -18,6 +18,8 @@ The dataset for this project was taken from [Jun Cheng](https://figshare.com/art
 
 ## Results:
 
+The model had a mean Dice score of 80% on the testing images. A sample comparison of the ground truth, input and output can be seen below.
+
 
 ## Next Steps:
 - Exploring different loss functions to improve segmentation
